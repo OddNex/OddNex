@@ -1,1 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ODDNEX</title>
 
+<style>
+
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background: radial-gradient(circle at top, #2a0050, #000);
+  color:white;
+}
+
+/* HEADER */
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px;
+}
+
+.logo{
+  font-size:26px;
+  font-weight:bold;
+  color:#a855f7;
+}
+
+nav a{
+  margin:0 10px;
+  color:#ccc;
+  text-decoration:none;
+}
+
+/* HERO */
+.hero{
+  padding:40px 20px;
+}
+
+.hero h1{
+  font-size:38px;
+}
+
+.hero span{
+  color:#00ff9f;
+}
+
+/* BOTÃO */
+.btn{
+  margin-top:20px;
+  padding:15px 25px;
+  border:none;
+  border-radius:12px;
+  background: linear-gradient(45deg,#7b2ff7,#00ff9f);
+  color:white;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* CARD */
+.card{
+  margin-top:20px;
+  background:#111;
+  padding:20px;
+  border-radius:15px;
+}
+
+/* STATS */
+.stats{
+  padding:20px;
+}
+
+.stat{
+  margin:10px 0;
+  background:#1a1a2e;
+  padding:15px;
+  border-radius:10px;
+  text-align:center;
+}
+
+.stat h2{
+  color:#00ff9f;
+}
+
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">ODDNEX</div>
+  <nav>
+    <a href="#">Análises</a>
+    <a href="#">Estratégias</a>
+    <a href="#">Gestão</a>
+  </nav>
+</header>
+
+<section class="hero">
+
+  <h1>Análises <span>Inteligentes</span><br>para Apostas</h1>
+
+  <button class="btn" onclick="gerarBilhete()">
+    ⚡ Gerar Bilhete
+  </button>
+
+  <div class="card">
+    <h3>Bilhete sugerido</h3>
+    <p id="entrada">Aguardando...</p>
+    <p id="prob"></p>
+  </div>
+
+</section>
+
+<section class="stats">
+
+  <div class="stat">
+    <h2>68%</h2>
+    <p>Taxa de vitória</p>
+  </div>
+
+  <div class="stat">
+    <h2>2.4</h2>
+    <p>Média de gols</p>
+  </div>
+
+</section>
+
+<script>
+
+function gerarBilhete(){
+
+  let picks = [
+    {nome:"Over 1.5 Gols", prob:82},
+    {nome:"Over 0.5 HT", prob:78},
+    {nome:"Under 3.5 Gols", prob:80}
+  ];
+
+  let pick = picks[Math.floor(Math.random()*picks.length)];
+
+  document.getElementById("entrada").innerHTML =
+    "💣 " + pick.nome;
+
+  document.getElementById("prob").innerHTML =
+    "🔥 " + pick.prob + "% de chance";
+
+}
+
+</script>
+
+</body>
+</html>
